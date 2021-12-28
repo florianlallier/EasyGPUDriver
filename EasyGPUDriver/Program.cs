@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Management;
 
 namespace EasyGPUDriver
 {
@@ -39,7 +40,16 @@ namespace EasyGPUDriver
         {
             string version = "0.0";
 
-            // TODO
+            foreach (ManagementObject mo in new ManagementObjectSearcher("SELECT * FROM Win32_VideoController").Get())
+            {
+                if (mo["Description"].ToString().ToLower().Contains("nvidia"))
+                {
+                    string driverVersion = mo["DriverVersion"].ToString();
+                    version = driverVersion.Substring(driverVersion.Length - 6, 6).Replace(".", string.Empty).Insert(3, "."); // "30.0.14.9729" format to "497.29" format
+
+                    break;
+                }
+            }
 
             return new Version(version);
         }
