@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Management;
 
 namespace EasyGPUDriver
@@ -58,7 +59,11 @@ namespace EasyGPUDriver
         {
             string version = "0.0";
 
-            // TODO
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc = web.Load($"http://www.nvidia.com/Download/driverResults.aspx/184729/fr");
+
+            string driverVersion = doc.DocumentNode.SelectSingleNode("//td[@id='tdVersion']").InnerText;
+            version = driverVersion.Trim().Substring(0, 6); // "497.29 WHQL" format to "497.29" format
 
             return new Version(version);
         }
