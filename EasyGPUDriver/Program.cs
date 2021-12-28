@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using System;
+using System.Configuration;
 using System.Management;
 
 namespace EasyGPUDriver
@@ -76,6 +77,8 @@ namespace EasyGPUDriver
 
         private static void DownloadDriver()
         {
+            string path = ConfigurationManager.AppSettings.Get("downloadPath");
+
             // TODO
         }
     }
