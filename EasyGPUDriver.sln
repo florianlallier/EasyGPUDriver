@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyGPUDriver", "EasyGPUDriver\EasyGPUDriver.csproj", "{9B3168BC-3E84-4892-87AA-E9B2D95AD08E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EasyGPUDriverSetup", "EasyGPUDriverSetup\EasyGPUDriverSetup.vdproj", "{E97B3894-0E45-42A7-AD87-221A1FAA59A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{9B3168BC-3E84-4892-87AA-E9B2D95AD08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B3168BC-3E84-4892-87AA-E9B2D95AD08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B3168BC-3E84-4892-87AA-E9B2D95AD08E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97B3894-0E45-42A7-AD87-221A1FAA59A4}.Debug|Any CPU.ActiveCfg = Debug
+		{E97B3894-0E45-42A7-AD87-221A1FAA59A4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
