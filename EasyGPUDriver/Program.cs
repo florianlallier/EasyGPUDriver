@@ -65,12 +65,14 @@ namespace EasyGPUDriver
             string version = "0.0";
 
             HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load("http://www.nvidia.com/Download/driverResults.aspx/184729/fr");
+            HtmlDocument doc = web.Load("https://www.nvidia.com/Download/processDriver.aspx?psid=98&pfid=756&osid=57&lid=12&dtcid=1&ctk=0");
+            string versionPageURL = doc.DocumentNode.OuterHtml;
 
+            doc = web.Load(versionPageURL);
             string driverVersion = doc.DocumentNode.SelectSingleNode("//td[@id='tdVersion']").InnerText;
             version = driverVersion.Trim().Substring(0, 6); // "497.29 WHQL" format to "497.29" format
-
             string downloadPageURL = "https://www.nvidia.com" + doc.DocumentNode.SelectSingleNode("//a[@id='lnkDwnldBtn']").Attributes["href"].Value.Trim();
+
             doc = web.Load(downloadPageURL);
             downloadURL = "https:" + doc.DocumentNode.SelectSingleNode("//td/a").Attributes["href"].Value.Trim();
 
