@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Florian Lallier")]
 [assembly: AssemblyProduct("EasyGPUDriver")]
-[assembly: AssemblyCopyright("Copyright © 2021 Florian Lallier")]
+[assembly: AssemblyCopyright("Copyright © 2022 Florian Lallier")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
