@@ -16,7 +16,7 @@ namespace EasyGPUDriver
             Console.Title = "EasyGPUDriver";
 
             Version currentVersion = GetCurrentVersion();
-            Version lastVersion = GetLastVersion();
+            Version lastVersion = GetLastVersion(psid: 98, pfid: 756, osid: 57, lid: 12, dtcid: 1, ctk: 0);
 
             Console.WriteLine($"Current version: {currentVersion}");
             Console.WriteLine($"Last version: {lastVersion}");
@@ -60,12 +60,12 @@ namespace EasyGPUDriver
             return new Version(version);
         }
 
-        private static Version GetLastVersion()
+        private static Version GetLastVersion(int psid, int pfid, int osid, int lid, int dtcid, int ctk)
         {
             string version = "0.0";
 
             HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load("https://www.nvidia.com/Download/processDriver.aspx?psid=98&pfid=756&osid=57&lid=12&dtcid=1&ctk=0");
+            HtmlDocument doc = web.Load($"https://www.nvidia.com/Download/processDriver.aspx?psid={psid}&pfid={pfid}&osid={osid}&lid={lid}&dtcid={dtcid}&ctk={ctk}");
             string versionPageURL = doc.DocumentNode.OuterHtml;
 
             doc = web.Load(versionPageURL);
