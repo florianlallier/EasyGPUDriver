@@ -16,7 +16,15 @@ namespace EasyGPUDriver
             Console.Title = "EasyGPUDriver";
 
             Version currentVersion = GetCurrentVersion();
-            Version lastVersion = GetLastVersion(psid: 98, pfid: 756, osid: 57, lid: 12, dtcid: 1, ctk: 0);
+
+            string psid = ConfigurationManager.AppSettings.Get("psid");
+            string pfid = ConfigurationManager.AppSettings.Get("pfid");
+            string osid = ConfigurationManager.AppSettings.Get("osid");
+            string lid = ConfigurationManager.AppSettings.Get("lid");
+            string dtcid = ConfigurationManager.AppSettings.Get("dtcid");
+            string ctk = ConfigurationManager.AppSettings.Get("ctk");
+
+            Version lastVersion = GetLastVersion(psid, pfid, osid, lid, dtcid, ctk);
 
             Console.WriteLine($"Current version: {currentVersion}");
             Console.WriteLine($"Last version: {lastVersion}");
@@ -60,7 +68,7 @@ namespace EasyGPUDriver
             return new Version(version);
         }
 
-        private static Version GetLastVersion(int psid, int pfid, int osid, int lid, int dtcid, int ctk)
+        private static Version GetLastVersion(string psid, string pfid, string osid, string lid, string dtcid, string ctk)
         {
             string version = "0.0";
 
